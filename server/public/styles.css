@@ -1,0 +1,30 @@
+:root {
+    --bg-primary: #ffe312;
+    --bg-secondary: #ff8312;
+    --main-font-style: cursive;
+}
+
+body {
+    background-color: var(--bg-primary);
+    font-family: var(--main-font-style);
+}
+
+.main-container {
+    background-color: var(--bg-secondary);
+}
+
+.main-header {
+    position: absolute;
+    background-color: var(--bg-primary);
+    height: 10%;
+    width: 100%;
+    top: 0;
+    font-family: var(--main-font-style);
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    
+    .header-title {
+        height: 100%;
+    }
+}
