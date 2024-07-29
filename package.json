@@ -6,6 +6,8 @@
   "scripts": {
     "start": "npm run build && docker compose up --build -d",
     "build": "webpack",
+    "db:migrate": "bash ./database/migrate-up.sh",
+    "db:drop-all": "bash ./database/drop-all.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
