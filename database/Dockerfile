@@ -1,4 +1,4 @@
 FROM postgres:14-alpine
 
-WORKDIR /usr/bin
+WORKDIR /usr/src
 COPY . .

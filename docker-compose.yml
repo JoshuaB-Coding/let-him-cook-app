@@ -7,13 +7,24 @@ services:
     restart: always
   
   database:
-    # image: postgres:14-alpine
     build: ./database
     ports:
       - 5432:5432
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
+      - ./database:/usr/src:ro
     environment:
       - POSTGRES_PASSWORD=lhc123
       - POSTGRES_USER=lhc_user
       - POSTGRES_DB=lhc_db
+    
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: lhc@lhc.com
+      PGADMIN_DEFAULT_PASSWORD: lhc123
+    volumes:
+      - ./pgadmin-data:/var/lib/pgadmin
