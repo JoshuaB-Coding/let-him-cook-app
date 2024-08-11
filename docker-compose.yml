@@ -4,7 +4,7 @@ services:
     build: ./server
     ports:
       - 5000:5000
-    restart: always
+    restart: "no"
   
   database:
     build: ./database
@@ -17,14 +17,25 @@ services:
       - POSTGRES_PASSWORD=lhc123
       - POSTGRES_USER=lhc_user
       - POSTGRES_DB=lhc_db
+    restart: "no"
     
   pgadmin:
     image: dpage/pgadmin4
-    restart: always
+    restart: "no"
     ports:
-      - "8888:80"
+      - 8888:80
     environment:
       PGADMIN_DEFAULT_EMAIL: lhc@lhc.com
       PGADMIN_DEFAULT_PASSWORD: lhc123
     volumes:
       - ./pgadmin-data:/var/lib/pgadmin
+
+  api:
+    build: ./api
+    ports:
+      - 8000:8000
+    environment:
+      - PORT=8000
+    volumes:
+      - ./api/app:/app:ro
+    restart: "no"
